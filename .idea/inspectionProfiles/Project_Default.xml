@@ -1,0 +1,45 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="flavours.models.InvestmentIdeasPortfolios.objects" />
+          <option value="flavours.models.HistoricData.objects" />
+          <option value="flavours.models.InvestmentIdeasHoldings.objects" />
+          <option value="user.models.Broker.objects" />
+          <option value="flavours.models.UserStockboxInOut.objects" />
+          <option value="flavours.models.InvestmentIdeasTracking.objects" />
+          <option value="help_action.models.Notification.objects" />
+          <option value="help_action.models.DayByDayTracking.objects" />
+          <option value="help_action.models.Holding.objects" />
+          <option value="help_action.models.Tracking.objects" />
+          <option value="flavours.models.SIPDetail.objects" />
+          <option value="payments.models.Order.objects" />
+          <option value="metrics.models.TechnicalScore.objects" />
+          <option value="flavours.models.StocksInOut.objects" />
+          <option value="flavours.models.InvestmentIdeasStocks.objects" />
+          <option value="backtesting.models.HistoricStocksData.objects" />
+          <option value="help_action.models.WhatsInWhatsOut.objects" />
+          <option value="portfolio.models.Transactions.objects" />
+          <option value="portfolio.models.RecommendedTrackedPortfolioStocks.objects" />
+          <option value="portfolio.models.RecommendedTrackedPortfolio.objects" />
+          <option value="portfolio.models.LoginValidation.objects" />
+          <option value="portfolio.models.BrokerLoginToken.objects" />
+          <option value="metrics.models.StockDetail.objects" />
+          <option value="portfolio.models.VirtualHoldings.objects" />
+          <option value="portfolio.models.OldPortfolioTracker.objects" />
+          <option value="portfolio.models.UserDetail.objects" />
+          <option value="help_action.models.Barometer.objects" />
+          <option value="metrics.models.FundamentalScore.objects" />
+          <option value="help_action.models.MarketMetadata.objects" />
+          <option value="user.models.UserSubscription.objects" />
+          <option value="user.models.BrokerCoupons.objects" />
+          <option value="portfolio.models.Portfolio.objects" />
+          <option value="backtesting.models.Portfolio.objects" />
+          <option value="backtesting.models.PortfolioStocks.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
