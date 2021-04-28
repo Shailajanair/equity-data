@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-594zx%jzry!mb#d+52kr15z+_zf9v3px-*kok*!u8tqm1#qumh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'historicdata'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'equity_data.wsgi.application'
 
+CACHE_TTL = 60 * 1500
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -123,3 +136,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# celery settings
+CELERY_TIMEZONE = "Asia/Kolkata"
+CELERY_BEAT_SCHEDULE = {
+    'fetch-equity-data-daily': {
+        'task': 'historicdata.private.crons.fetch_equity_data',
+        'schedule': crontab(hour=18, minute=00)  # 6 PM daily
+    }
+}
+CELERY_IMPORTS = ['historicdata.private.crons']
